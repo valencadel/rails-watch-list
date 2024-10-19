@@ -7,10 +7,13 @@
         <%= image_tag bookmark.movie.poster_url, alt: "bookmark poster", width: 100 %> 
         <%= bookmark.movie.title%> : 
         <%= bookmark.comment%>
-        <%= button_to 'Delete', bookmark_path(bookmark), 
+        <%#= button_to 'Delete', bookmark_path(bookmark), 
                   method: :delete, 
                   confirm: 'Are you sure?', 
                   class: "btn btn-danger" %>
+        <%= link_to 'Delete', bookmark_path(bookmark), 
+                  data: { turbo_method: :delete , turbo_confirm: "Are you sure?" },
+                  class: "btn btn-danger"%>
       </li>
     <% end %>
 
