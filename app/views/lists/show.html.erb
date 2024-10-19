@@ -1,14 +1,21 @@
 <div class="container mt-5">
-  <h2><strong><%= @list.name %></strong></h2>
+  <h1><strong><%= @list.name %></strong></h1>
   
-  <ol><strong>Movies</strong></ol>
-    <% @list.movies.each do |movie| %>
+  <ol><h2><strong>Bookmarks</strong></h2></ol>
+    <% @list.bookmarks.each do |bookmark| %>
       <li> 
-        <%= movie.title%>
+        <%= image_tag bookmark.movie.poster_url, alt: "bookmark poster", width: 100 %> 
+        <%= bookmark.movie.title%> : 
+        <%= bookmark.movie.overview%>
+        <%= button_to 'Delete', bookmark_path(bookmark), 
+                  method: :delete, 
+                  confirm: 'Are you sure?', 
+                  class: "btn btn-danger" %>
       </li>
     <% end %>
 
     <hr>
-    
+
+  <p><%= link_to "Create a new Bookmark", new_list_bookmark_path(@list), class: "btn btn-primary" %></p>
   <p><%= link_to "Back to lists", lists_path, class: "btn btn-info" %></p>
 </div>
