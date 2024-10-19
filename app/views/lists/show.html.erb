@@ -6,7 +6,7 @@
       <li> 
         <%= image_tag bookmark.movie.poster_url, alt: "bookmark poster", width: 100 %> 
         <%= bookmark.movie.title%> : 
-        <%= bookmark.movie.overview%>
+        <%= bookmark.comment%>
         <%= button_to 'Delete', bookmark_path(bookmark), 
                   method: :delete, 
                   confirm: 'Are you sure?', 
