@@ -6,9 +6,9 @@
   <% @lists.each do |list| %>
     <div class="container" style="flex">
       <li>
-        <%# <% if list.photo.key != nil %> 
-          <%# <%= cl_image_tag(list.photo.key, height: 300, width: 400, crop: :fill) %> 
-        <%# <% end %> 
+        <% if list.photo.key != nil %> 
+          <%= cl_image_tag(list.photo.key, height: 300, width: 400, crop: :fill) %> 
+        <% end %> 
         <%= link_to list.name, list_path(list) %>
       </li>
     </div>
